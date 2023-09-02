@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
-  ServiceWorkerRegister,
+  ServiceWorkerRegister
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
 
@@ -21,6 +21,7 @@ export default component$(() => {
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
         <RouterHead />
         <ServiceWorkerRegister />
       </head>
