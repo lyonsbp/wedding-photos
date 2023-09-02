@@ -8,6 +8,7 @@ export default extendConfig(baseConfig, () => {
       ssr: true,
       rollupOptions: {
         input: ["src/entry.cloudflare-pages.tsx", "@qwik-city-plan"],
+        external: ['@miniflare/r2', '@miniflare/shared', '@miniflare/storage-memory']
       },
     },
     plugins: [cloudflarePagesAdapter()],
