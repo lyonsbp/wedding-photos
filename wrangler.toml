@@ -1,0 +1,4 @@
+[[r2_buckets]]
+binding = 'WEDDING_PHOTOS'                     # <~ valid JavaScript variable name
+bucket_name = 'wedding-photos'
+preview_bucket_name = 'preview-wedding-photos'

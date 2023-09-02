@@ -1,17 +1,37 @@
 import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 
 import Counter from "~/components/starter/counter/counter";
 import Hero from "~/components/starter/hero/hero";
 import Infobox from "~/components/starter/infobox/infobox";
 import Starter from "~/components/starter/next-steps/next-steps";
+import { getR2Bucket } from "~/lib/r2";
+
+export const useWeddingPhotos = routeLoader$(async ({ platform }) => {
+  // This code runs only on the server, after every navigation
+  const bucket = await getR2Bucket(platform, "WEDDING_PHOTOS");
+  const { objects } = await bucket.list();
+  const photos = [];
+  for (const object of objects) {
+    const photo = await bucket.get(object.key);
+    const photoText = await photo?.text();
+    photos.push(photoText);
+  }
+  return photos;
+});
 
 export default component$(() => {
+  const signal = useWeddingPhotos();
+
+  console.log(signal.value);
   return (
     <>
       <Hero />
       <Starter />
 
+      {signal.value.map(photo => (
+        <p>{photo}</p>
+      ))}
       <div role="presentation" class="ellipsis"></div>
       <div role="presentation" class="ellipsis ellipsis-purple"></div>
 
@@ -106,7 +126,7 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "Qwik site description",
-    },
-  ],
+      content: "Qwik site description"
+    }
+  ]
 };

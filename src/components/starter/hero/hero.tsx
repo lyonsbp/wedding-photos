@@ -11,7 +11,7 @@ export default component$(() => {
         <br />
         to have <span class="highlight">you</span> here
       </h1>
-      <p>Have fun building your App with Qwik.</p>
+      <p>Hi Mitzi.</p>
       <div class={styles["button-group"]}>
         <button
           onClick$={async () => {
@@ -24,8 +24,8 @@ export default component$(() => {
               colors: ["006ce9", "ac7ff4", "18b6f6", "713fc2", "ffffff"],
               origin: {
                 x: 0.5,
-                y: 0.35,
-              },
+                y: 0.35
+              }
             };
 
             function loadConfetti() {
@@ -50,13 +50,13 @@ export default component$(() => {
               confetti({
                 ...defaults,
                 particleCount: 80,
-                scalar: 1.2,
+                scalar: 1.2
               });
 
               confetti({
                 ...defaults,
                 particleCount: 60,
-                scalar: 0.75,
+                scalar: 0.75
               });
             }
 
