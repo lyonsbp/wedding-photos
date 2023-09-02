@@ -1,10 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
-
-import Counter from "~/components/starter/counter/counter";
-import Hero from "~/components/starter/hero/hero";
-import Infobox from "~/components/starter/infobox/infobox";
-import Starter from "~/components/starter/next-steps/next-steps";
 import { getR2Bucket } from "~/lib/r2";
 
 export const useWeddingPhotos = routeLoader$(async ({ platform }) => {
