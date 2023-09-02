@@ -37,6 +37,7 @@ export default component$(() => {
           src={`https://photos.brandonandmitzi.wedding/${photo}`}
           width={1200}
           height={1200}
+          class="w-full"
         />
       ))}
     </main>
