@@ -11,13 +11,7 @@ export const useWeddingPhotos = routeLoader$(async ({ platform }) => {
   // This code runs only on the server, after every navigation
   const bucket = await getR2Bucket(platform, "WEDDING_PHOTOS");
   const { objects } = await bucket.list();
-  const photos = [];
-  for (const object of objects) {
-    const photo = await bucket.get(object.key);
-    const photoText = await photo?.text();
-    photos.push(photoText);
-  }
-  return photos;
+  return objects.map(object => object.key);
 });
 
 export default component$(() => {
@@ -30,7 +24,12 @@ export default component$(() => {
       <Starter />
 
       {signal.value.map(photo => (
-        <p>{photo}</p>
+        <img
+          key={photo}
+          src={`https://photos.brandonandmitzi.wedding/${photo}`}
+          width="500"
+          height="500"
+        />
       ))}
       <div role="presentation" class="ellipsis"></div>
       <div role="presentation" class="ellipsis ellipsis-purple"></div>
