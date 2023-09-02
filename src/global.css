@@ -86,3 +86,7 @@ body {
   padding: 0;
   line-height: inherit;
 }
+
+.see-through {
+  background: rgba(204, 204, 204, 0.5);
+}

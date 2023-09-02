@@ -1,81 +1,50 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./hero.module.css";
-import ImgThunder from "~/media/thunder.png?jsx";
 
 export default component$(() => {
   return (
-    <div class={["container", styles.hero]}>
-      <ImgThunder class={styles["hero-image"]} />
-      <h1>
-        So <span class="highlight">fantastic</span>
-        <br />
-        to have <span class="highlight">you</span> here
-      </h1>
-      <p>Hi Mitzi.</p>
-      <div class={styles["button-group"]}>
-        <button
-          onClick$={async () => {
-            const defaults = {
-              spread: 360,
-              ticks: 70,
-              gravity: 0,
-              decay: 0.95,
-              startVelocity: 30,
-              colors: ["006ce9", "ac7ff4", "18b6f6", "713fc2", "ffffff"],
-              origin: {
-                x: 0.5,
-                y: 0.35
-              }
-            };
-
-            function loadConfetti() {
-              return new Promise<(opts: any) => void>((resolve, reject) => {
-                if ((globalThis as any).confetti) {
-                  return resolve((globalThis as any).confetti as any);
-                }
-                const script = document.createElement("script");
-                script.src =
-                  "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
-                script.onload = () =>
-                  resolve((globalThis as any).confetti as any);
-                script.onerror = reject;
-                document.head.appendChild(script);
-                script.remove();
-              });
-            }
-
-            const confetti = await loadConfetti();
-
-            function shoot() {
-              confetti({
-                ...defaults,
-                particleCount: 80,
-                scalar: 1.2
-              });
-
-              confetti({
-                ...defaults,
-                particleCount: 60,
-                scalar: 0.75
-              });
-            }
-
-            setTimeout(shoot, 0);
-            setTimeout(shoot, 100);
-            setTimeout(shoot, 200);
-            setTimeout(shoot, 300);
-            setTimeout(shoot, 400);
-          }}
+    <div class="bg-gray-900">
+      <div class="relative isolate overflow-hidden pt-14">
+        <img
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+          alt=""
+          class="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div
+          class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          aria-hidden="true"
         >
-          Time to celebrate
-        </button>
-        <a
-          href="https://qwik.builder.io/docs"
-          target="_blank"
-          class="button button-dark"
+          <div
+            class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+            }}
+          />
+        </div>
+        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div class="text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              Data to enrich your online business
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-gray-300">
+              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+              fugiat aliqua.
+            </p>
+          </div>
+        </div>
+        <div
+          class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          aria-hidden="true"
         >
-          Explore the docs
-        </a>
+          <div
+            class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+            }}
+          />
+        </div>
       </div>
     </div>
   );
