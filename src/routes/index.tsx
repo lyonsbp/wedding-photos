@@ -14,7 +14,7 @@ export default component$(() => {
 
   console.log(signal.value);
   return (
-    <>
+    <main>
       {signal.value.map(photo => (
         <img
           key={photo}
@@ -23,9 +23,7 @@ export default component$(() => {
           height={1200}
         />
       ))}
-      <div role="presentation" class="ellipsis"></div>
-      <div role="presentation" class="ellipsis ellipsis-purple"></div>
-    </>
+    </main>
   );
 });
 
