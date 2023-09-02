@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { getR2Bucket } from "~/lib/r2";
-import Hero from "~/components/starter/hero/hero";
 
 export const useWeddingPhotos = routeLoader$(async ({ platform }) => {
   // This code runs only on the server, after every navigation
