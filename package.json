@@ -43,6 +43,8 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
     "@miniflare/r2": "^2.14.1",
     "@miniflare/storage-memory": "^2.14.1"
   }
